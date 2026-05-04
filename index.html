@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RK Jewellers | Premium Gold & Silver Bullion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* LUXURY COLOR PALETTE */
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --black: #0a0a0a;
+            --dark-grey: #1a1a1a;
+            --white: #ffffff;
+            --soft-white: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif, Arial;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background-color: rgba(0, 0, 0, 0.95);
+            border-bottom: 2px solid var(--gold);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 300;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            color: var(--soft-white);
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background-color: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+            border: 2px solid var(--gold);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        /* SECTION STYLING */
+        section {
+            padding: 100px 10% 60px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* BULLION BOX (SPECIAL HIGHLIGHT) */
+        .bullion-banner {
+            background-color: var(--dark-grey);
+            border: 2px solid var(--gold);
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .bullion-banner h3 {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* COLLECTIONS GRID */
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--dark-grey);
+            border: 1px solid #333;
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        /* ABOUT SECTION */
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: var(--soft-white);
+        }
+
+        /* CONTACT SECTION */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info div {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .contact-info i {
+            color: var(--gold);
+            margin-right: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea {
+            padding: 12px;
+            margin-bottom: 20px;
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: #000;
+            border-top: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .contact-container { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">RK JEWELLERS</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <section class="hero" id="home">
+        <h1>RK JEWELLERS</h1>
+        <p>Excellence in Purity, Trust in Tradition</p>
+        <a href="#collections" class="btn">View Our Trade</a>
+    </section>
+
+    <!-- BULLION HIGHLIGHT -->
+    <section>
+        <div class="bullion-banner">
+            <h3><i class="fas fa-coins"></i> Premium Bullion Trading</h3>
+            <p>WE TRADE IN GOLD AND SILVER BULLION ONLY AT GOOD RATES</p>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <p>With a legacy of trust and transparency, RK Jewellers specializes in the trading of high-purity gold and silver bullion. We pride ourselves on offering the most competitive market rates and ensuring that every transaction is handled with the utmost professionalism and integrity.</p>
+        </div>
+    </section>
+
+    <!-- COLLECTIONS SECTION -->
+    <section id="collections">
+        <h2>Our Trade Collections</h2>
+        <div class="collections-grid">
+            <div class="card">
+                <i class="fas fa-cubes"></i>
+                <h3>Gold Bullion</h3>
+                <p>Pure investment-grade gold bars and coins at the most competitive market rates.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-circle"></i>
+                <h3>Silver Bullion</h3>
+                <p>High-quality silver bars and bullion for long-term wealth preservation.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Market Rates</h3>
+                <p>We provide transparent, real-time pricing to ensure you get the best value.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div><i class="fas fa-map-marker-alt"></i> Visit our store in [Your City/Area]</div>
+                <div><i class="fas fa-phone"></i> +91 [Your Phone Number]</div>
+                <div><i class="fas fa-envelope"></i> info@rkjewellers.com</div>
+                <div><i class="fas fa-clock"></i> Mon - Sat: 10:00 AM - 8:00 PM</div>
+            </div>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Your Inquiry" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2023 RK JEWELLERS. All Rights Reserved. | Luxury & Purity
+    </footer>
+
+</body>
+</html>

@@ -6,7 +6,6 @@
     <title>RK Jewellers | Premium Gold & Silver Bullion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* LUXURY COLOR PALETTE */
         :root {
             --gold: #D4AF37;
             --dark-gold: #B8860B;
@@ -16,21 +15,9 @@
             --soft-white: #f4f4f4;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Playfair Display', serif, Arial;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Playfair Display', serif, Arial; }
+        body { background-color: var(--black); color: var(--white); line-height: 1.6; scroll-behavior: smooth; }
 
-        body {
-            background-color: var(--black);
-            color: var(--white);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        /* NAVIGATION */
         nav {
             background-color: rgba(0, 0, 0, 0.95);
             border-bottom: 2px solid var(--gold);
@@ -44,40 +31,14 @@
             z-index: 1000;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
+        .logo { font-size: 1.8rem; font-weight: bold; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; }
+        .nav-links { list-style: none; display: flex; }
+        .nav-links li { margin-left: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--white); font-weight: 300; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--gold); }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--white);
-            font-weight: 300;
-            transition: 0.3s;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        /* HERO SECTION */
         .hero {
-            height: 100vh;
+            height: 80vh;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                         url('https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
@@ -90,157 +51,76 @@
             padding: 0 20px;
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
+        .hero h1 { font-size: 4rem; color: var(--gold); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 5px; }
+        .hero p { font-size: 1.5rem; margin-bottom: 2rem; font-style: italic; color: var(--soft-white); }
+
+        /* LIVE RATES SECTION */
+        .live-rates-container {
+            background: var(--dark-grey);
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+            padding: 30px 5%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            font-style: italic;
-            color: var(--soft-white);
-        }
-
-        .btn {
+        .rate-box {
+            background: #000;
+            border: 1px solid var(--gold);
             padding: 15px 30px;
-            background-color: var(--gold);
-            color: var(--black);
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: 0.3s;
-            border: 2px solid var(--gold);
-        }
-
-        .btn:hover {
-            background-color: transparent;
-            color: var(--gold);
-        }
-
-        /* SECTION STYLING */
-        section {
-            padding: 100px 10% 60px;
-        }
-
-        h2 {
             text-align: center;
-            font-size: 2.5rem;
+            min-width: 250px;
+            border-radius: 8px;
+        }
+
+        .rate-box h4 {
             color: var(--gold);
-            margin-bottom: 3rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* BULLION BOX (SPECIAL HIGHLIGHT) */
-        .bullion-banner {
-            background-color: var(--dark-grey);
-            border: 2px solid var(--gold);
-            padding: 40px;
-            text-align: center;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-
-        .bullion-banner h3 {
-            color: var(--gold);
-            font-size: 2rem;
+            font-size: 0.9rem;
             margin-bottom: 10px;
         }
 
-        /* COLLECTIONS GRID */
-        .collections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background-color: var(--dark-grey);
-            border: 1px solid #333;
-            padding: 20px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            border-color: var(--gold);
-            transform: translateY(-10px);
-        }
-
-        .card i {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
-        }
-
-        /* ABOUT SECTION */
-        .about-content {
-            text-align: center;
-            max-width: 800px;
+        /* WIDGET WRAPPER */
+        .widget-container {
+            width: 100%;
+            max-width: 1100px;
             margin: 0 auto;
-            font-size: 1.2rem;
-            color: var(--soft-white);
+            overflow-x: auto;
         }
 
-        /* CONTACT SECTION */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
+        .btn { padding: 15px 30px; background-color: var(--gold); color: var(--black); text-decoration: none; font-weight: bold; text-transform: uppercase; transition: 0.3s; border: 2px solid var(--gold); }
+        .btn:hover { background-color: transparent; color: var(--gold); }
 
-        .contact-info div {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
+        section { padding: 100px 10% 60px; }
+        h2 { text-align: center; font-size: 2.5rem; color: var(--gold); margin-bottom: 3rem; text-transform: uppercase; letter-spacing: 2px; }
 
-        .contact-info i {
-            color: var(--gold);
-            margin-right: 10px;
-        }
+        .bullion-banner { background-color: var(--dark-grey); border: 2px solid var(--gold); padding: 40px; text-align: center; margin: 20px 0; border-radius: 5px; }
+        .bullion-banner h3 { color: var(--gold); font-size: 2rem; margin-bottom: 10px; }
 
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+        .collections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background-color: var(--dark-grey); border: 1px solid #333; padding: 20px; text-align: center; transition: 0.3s; }
+        .card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .card i { font-size: 3rem; color: var(--gold); margin-bottom: 1rem; }
 
-        input, textarea {
-            padding: 12px;
-            margin-bottom: 20px;
-            background: #222;
-            border: 1px solid #444;
-            color: white;
-        }
+        .about-content { text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.2rem; color: var(--soft-white); }
 
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .contact-info div { margin-bottom: 20px; font-size: 1.1rem; }
+        .contact-info i { color: var(--gold); margin-right: 10px; }
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            background-color: #000;
-            border-top: 1px solid var(--gold);
-            color: var(--gold);
-            font-size: 0.9rem;
-        }
+        form { display: flex; flex-direction: column; }
+        input, textarea { padding: 12px; margin-bottom: 20px; background: #222; border: 1px solid #444; color: white; }
+        input:focus, textarea:focus { outline: none; border-color: var(--gold); }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .contact-container { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
-        }
+        footer { text-align: center; padding: 40px; background-color: #000; border-top: 1px solid var(--gold); color: var(--gold); font-size: 0.9rem; }
+
+        @media (max-width: 768px) { .nav-links { display: none; } .contact-container { grid-template-columns: 1fr; } .hero h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION -->
     <nav>
         <div class="logo">RK JEWELLERS</div>
         <ul class="nav-links">
@@ -251,14 +131,41 @@
         </ul>
     </nav>
 
-    <!-- HOME SECTION -->
     <section class="hero" id="home">
         <h1>RK JEWELLERS</h1>
         <p>Excellence in Purity, Trust in Tradition</p>
         <a href="#collections" class="btn">View Our Trade</a>
     </section>
 
-    <!-- BULLION HIGHLIGHT -->
+    <!-- LIVE MARKET RATES SECTION -->
+    <div class="live-rates-container">
+        <div class="widget-container">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                {
+                "colorTheme": "dark",
+                "dateRange": "12M",
+                "showChart": false,
+                "locale": "en",
+                "width": "100%",
+                "height": "200",
+                "largeChartUrl": "",
+                "isTransparent": true,
+                "showSymbolLogo": true,
+                "showFloatingTooltip": false,
+                "symbols": [
+                    { "s": "TVC:GOLD", "d": "Gold 999" },
+                    { "s": "TVC:SILVER", "d": "Silver 925" }
+                ]
+                }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+    </div>
+
     <section>
         <div class="bullion-banner">
             <h3><i class="fas fa-coins"></i> Premium Bullion Trading</h3>
@@ -266,7 +173,6 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section id="about">
         <h2>About Us</h2>
         <div class="about-content">
@@ -274,7 +180,6 @@
         </div>
     </section>
 
-    <!-- COLLECTIONS SECTION -->
     <section id="collections">
         <h2>Our Trade Collections</h2>
         <div class="collections-grid">
@@ -296,7 +201,6 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <section id="contact">
         <h2>Contact Us</h2>
         <div class="contact-container">

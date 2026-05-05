@@ -16,11 +16,13 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Playfair Display', serif, Arial; }
-        body { background-color: var(--black); color: var(--white); line-height: 1.6; scroll-behavior: smooth; }
+        body { background-color: var(--black); color: var(--white); line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
 
+        /* NAVIGATION */
         nav {
-            background-color: rgba(0, 0, 0, 0.95);
-            border-bottom: 2px solid var(--gold);
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gold);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -30,87 +32,79 @@
             top: 0;
             z-index: 1000;
         }
-
         .logo { font-size: 1.8rem; font-weight: bold; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; }
         .nav-links { list-style: none; display: flex; }
         .nav-links li { margin-left: 2rem; }
         .nav-links a { text-decoration: none; color: var(--white); font-weight: 300; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
         .nav-links a:hover { color: var(--gold); }
 
+        /* VIDEO HERO SECTION */
         .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero h1 { font-size: 4rem; color: var(--gold); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 5px; }
-        .hero p { font-size: 1.5rem; margin-bottom: 2rem; font-style: italic; color: var(--soft-white); }
-
-        /* NEW LIVE RATE LAYOUT */
-        .rates-section {
-            padding: 50px 5%;
-            background: var(--black);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .rates-title {
-            color: var(--gold);
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
-        }
-
-        .rates-grid {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
+            position: relative;
+            height: 100vh;
             width: 100%;
-            max-width: 1000px;
-        }
-
-        .rate-card {
-            background: var(--dark-grey);
-            border: 2px solid var(--gold);
-            border-radius: 15px;
-            padding: 20px;
-            width: 400px;
-            height: 250px;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            box-shadow: 0px 10px 30px rgba(212, 175, 55, 0.1);
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
         }
 
-        .rate-card h3 {
-            color: var(--gold);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-            text-transform: uppercase;
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.6);
         }
+
+        .hero-overlay {
+            z-index: 1;
+            background: rgba(0,0,0,0.2);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            pointer-events: auto;
+        }
+
+        /* We remove the H1 since your video already has "RK JEWELLERS" appearing */
+        .hero p { 
+            font-size: 1.8rem; 
+            margin-bottom: 2rem; 
+            font-style: italic; 
+            color: var(--soft-white); 
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            animation: fadeIn 3s ease-in;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .btn { padding: 15px 30px; background-color: var(--gold); color: var(--black); text-decoration: none; font-weight: bold; text-transform: uppercase; transition: 0.3s; border: 2px solid var(--gold); cursor: pointer; }
+        .btn:hover { background-color: transparent; color: var(--gold); }
+
+        /* LIVE RATES SECTION */
+        .rates-section { padding: 80px 5%; background: var(--black); display: flex; flex-direction: column; align-items: center; }
+        .rates-title { color: var(--gold); font-size: 2.5rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
+        .rates-grid { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; width: 100%; max-width: 1000px; }
+        .rate-card { background: var(--dark-grey); border: 2px solid var(--gold); border-radius: 15px; padding: 20px; width: 400px; height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0px 10px 30px rgba(212, 175, 55, 0.1); }
+        .rate-card h3 { color: var(--gold); margin-bottom: 15px; font-size: 1.5rem; text-transform: uppercase; }
 
         /* BULLION BANNER */
-        .bullion-banner { 
-            background-color: var(--dark-grey); 
-            border: 2px solid var(--gold); 
-            padding: 40px; 
-            text-align: center; 
-            margin: 20px 10%; 
-            border-radius: 5px; 
-        }
+        .bullion-banner { background-color: var(--dark-grey); border: 2px solid var(--gold); padding: 40px; text-align: center; margin: 40px 10%; border-radius: 10px; }
         .bullion-banner h3 { color: var(--gold); font-size: 2rem; margin-bottom: 10px; }
 
         section { padding: 80px 10% 60px; }
@@ -131,32 +125,12 @@
         input, textarea { padding: 12px; margin-bottom: 20px; background: #222; border: 1px solid #444; color: white; }
         input:focus, textarea:focus { outline: none; border-color: var(--gold); }
 
-        .btn { padding: 15px 30px; background-color: var(--gold); color: var(--black); text-decoration: none; font-weight: bold; text-transform: uppercase; transition: 0.3s; border: 2px solid var(--gold); cursor: pointer; }
-        .btn:hover { background-color: transparent; color: var(--gold); }
-
         /* WHATSAPP FLOAT */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; }
 
         footer { text-align: center; padding: 40px; background-color: #000; border-top: 1px solid var(--gold); color: var(--gold); font-size: 0.9rem; }
 
-        @media (max-width: 768px) { .nav-links { display: none; } .contact-container { grid-template-columns: 1fr; } .hero h1 { font-size: 2.5rem; } .rate-card { width: 100%; } }
+        @media (max-width: 768px) { .nav-links { display: none; } .contact-container { grid-template-columns: 1fr; } .hero p { font-size: 1.2rem; } .rate-card { width: 100%; } }
     </style>
 </head>
 <body>
@@ -171,53 +145,43 @@
         </ul>
     </nav>
 
-    <section class="hero" id="home">
-        <h1>RK JEWELLERS</h1>
-        <p>Excellence in Purity, Trust in Tradition</p>
-        <a href="#rates" class="btn">Check Market Rates</a>
-    </section>
+    <!-- HERO SECTION WITH VIDEO -->
+    <div class="hero" id="home">
+        <!-- REPLACE THE SRC LINK BELOW WITH YOUR ACTUAL VIDEO LINK -->
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="PASTE_YOUR_VIDEO_LINK_HERE" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <p>Excellence in Purity, Trust in Tradition</p>
+                <a href="#rates" class="btn">Check Market Rates</a>
+            </div>
+        </div>
+    </div>
 
-    <!-- NEW LOCKED LIVE RATES SECTION -->
+    <!-- LIVE RATES SECTION -->
     <div class="rates-section" id="rates">
         <h2 class="rates-title">Live Market Rates</h2>
         <div class="rates-grid">
-            
-            <!-- GOLD BOX -->
             <div class="rate-card">
                 <h3><i class="fas fa-coins"></i> Gold 999</h3>
                 <div class="tradingview-widget-container">
                     <div class="tradingview-widget-container__widget"></div>
                     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-                    {
-                      "symbol": "TVC:GOLD",
-                      "interval": "1m",
-                      "quoteStyle": "price",
-                      "colorTheme": "dark",
-                      "isTransparent": true,
-                      "locale": "en"
-                    }
+                    { "symbol": "TVC:GOLD", "interval": "1m", "quoteStyle": "price", "colorTheme": "dark", "isTransparent": true, "locale": "en" }
                     </script>
                 </div>
             </div>
-
-            <!-- SILVER BOX -->
             <div class="rate-card">
                 <h3><i class="fas fa-circle"></i> Silver 925</h3>
                 <div class="tradingview-widget-container">
                     <div class="tradingview-widget-container__widget"></div>
                     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-                    {
-                      "symbol": "TVC:SILVER",
-                      "interval": "1m",
-                      "quoteStyle": "price",
-                      "colorTheme": "dark",
-                      "isTransparent": true,
-                      "locale": "en"
-                    }
+                    { "symbol": "TVC:SILVER", "interval": "1m", "quoteStyle": "price", "colorTheme": "dark", "isTransparent": true, "locale": "en" }
                     </script>
                 </div>
             </div>
-
         </div>
     </div>
 
